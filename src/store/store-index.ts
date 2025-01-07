@@ -1,6 +1,6 @@
 //Arquivo de configuração do Redux
 import { configureStore } from '@reduxjs/toolkit'
-import tarefasReducer from './reducers/tarefa-reducer'
+import tarefasReducer from './reducers/tarefas-reducer'
 
 const store = configureStore({
   reducer: {

@@ -1,18 +1,16 @@
 //importação dos estilos configurados em tarefa-styles.tsx.
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import * as S from './tarefa-styles'
-import * as enums from '../../utils/enums/enum-tarefa'
+import { remover } from '../../store/reducers/tarefas-reducer'
+import TarefaClass from '../../models/Tarefa-model'
 
-// Definição das props dos elementos editáveis.
-type Props = {
-  titulo: string
-  prioridade: enums.Prioridade
-  status: enums.Status
-  descricao: string
-}
+// Definição das props dos elementos editáveis, baseadas na clase tarefa em models.
+type Props = TarefaClass
 
 //configuração dos cards descritivos das tarefas.
-const Tarefa = ({ titulo, prioridade, status, descricao }: Props) => {
+const Tarefa = ({ titulo, prioridade, status, descricao, id }: Props) => {
+  const dispatch = useDispatch()
   const [estaEditando, setEstaEditando] = useState(false) // Função useState para a alteração entre os botões editar e cancelar
   return (
     <S.Card>
@@ -35,7 +33,9 @@ const Tarefa = ({ titulo, prioridade, status, descricao }: Props) => {
         ) : (
           <>
             <S.Botao onClick={() => setEstaEditando(true)}>Editar</S.Botao>
-            <S.BtnCancelarRemover>Remover</S.BtnCancelarRemover>
+            <S.BtnCancelarRemover onClick={() => dispatch(remover(id))}>
+              Remover
+            </S.BtnCancelarRemover>
           </>
         )}
       </S.BarraAcoes>
