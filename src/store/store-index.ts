@@ -1,10 +1,12 @@
 //Arquivo de configuração do Redux
 import { configureStore } from '@reduxjs/toolkit'
 import tarefasReducer from './reducers/tarefas-reducer'
+import filtroReducer from './reducers/filtro-reducer'
 
 const store = configureStore({
   reducer: {
-    tarefas: tarefasReducer
+    tarefas: tarefasReducer,
+    filtro: filtroReducer
   }
 })
 

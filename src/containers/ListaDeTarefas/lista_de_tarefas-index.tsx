@@ -5,13 +5,22 @@ import { RootReducer } from '../../store/store-index'
 
 const ListaDeTarefas = () => {
   const { itens } = useSelector((state: RootReducer) => state.tarefas)
+  const { termo } = useSelector((state: RootReducer) => state.filtro)
+
+  //Função para a barra de busca fazer a leitura do que o usuário vai digitar.
+  const filtraTarefas = () => {
+    return itens.filter(
+      (item) => item.titulo.toLowerCase().search(termo.toLowerCase()) >= 0
+    )
+  }
+
   return (
     <Container>
       <p>
-        0 tarefas marcadas como: &quot;categoria&ldquo; e &quot;termo&ldquo;
+        0 tarefas marcadas como: &quot;categoria&ldquo; e &quot;{termo}&ldquo;
       </p>
       <ul>
-        {itens.map((t) => (
+        {filtraTarefas().map((t) => (
           <li key={t.titulo}>
             <Tarefa
               descricao={t.descricao}
