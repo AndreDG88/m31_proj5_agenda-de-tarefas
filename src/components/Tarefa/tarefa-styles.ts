@@ -84,11 +84,7 @@ export const Botao = styled.button`
   border-radius: 8px;
   margin-right: 8px;
 `
-//config variante de cores dos botões
-export const BotaoSalvar = styled(Botao)`
-  background-color: ${variaveis.verde};
-`
-
+//config variante de cor para o botão cancelar
 export const BtnCancelarRemover = styled(Botao)`
   background-color: ${variaveis.vermelho};
 `

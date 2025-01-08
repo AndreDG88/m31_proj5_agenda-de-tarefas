@@ -1,4 +1,12 @@
+import BarraLateral from '../../containers/BarraLateral/barra_lateral-index'
+import Formulario from '../../containers/Formulario/formulario-index'
+
 //Config da pagina para cadastro de novas tarefas utilizando o sistema de páginas React Router DOM
-const Cadastro = () => <div>Nova Tarefa</div>
+const Cadastro = () => (
+  <>
+    <BarraLateral />
+    <Formulario />
+  </>
+)
 
 export default Cadastro

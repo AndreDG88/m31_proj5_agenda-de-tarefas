@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux'
 import * as S from './tarefa-styles'
 import { remover, editar } from '../../store/reducers/tarefas-reducer'
 import TarefaClass from '../../models/Tarefa-model'
+import { BotaoSalvar } from '../../styles/global-index'
 
 // Definição das props dos elementos editáveis, baseadas na clase tarefa em models.
 type Props = TarefaClass
@@ -50,14 +51,14 @@ const Tarefa = ({
       <S.BarraAcoes>
         {estaEditando ? (
           <>
-            <S.BotaoSalvar
+            <BotaoSalvar
               onClick={() => {
                 dispatch(editar({ titulo, prioridade, status, descricao, id }))
                 setEstaEditando(false)
               }}
             >
               Salvar
-            </S.BotaoSalvar>
+            </BotaoSalvar>
             <S.BtnCancelarRemover onClick={cancelarEdicao}>
               Cancelar
             </S.BtnCancelarRemover>
