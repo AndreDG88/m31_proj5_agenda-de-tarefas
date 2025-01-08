@@ -1,9 +1,21 @@
 // área de importação que conecta o App.tsx com todos os outros componentes do projeto.
 import { Provider } from 'react-redux'
-import BarraLateral from './containers/BarraLateral/barra_lateral-index'
-import ListaDeTarefas from './containers/ListaDeTarefas/lista_de_tarefas-index'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import EstiloGlobal, { Container } from './styles/global-index'
 import store from './store/store-index'
+import Home from './pages/Home/home-index'
+import Cadastro from './pages/Cadastro/Cadastro-index'
+
+const rotas = createBrowserRouter([
+  {
+    path: '/',
+    element: <Home />
+  },
+  {
+    path: '/novo',
+    element: <Cadastro />
+  }
+])
 
 // Aqui é basicamente a montagem de blocos, de containers e elementos para criar o front end
 function App() {
@@ -11,8 +23,7 @@ function App() {
     <Provider store={store}>
       <EstiloGlobal />
       <Container>
-        <BarraLateral />
-        <ListaDeTarefas />
+        <RouterProvider router={rotas} />
       </Container>
     </Provider>
   )
