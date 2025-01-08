@@ -1,16 +1,18 @@
 // Arquivo de estilização do filtro_card-index.tsx.
 import styled from 'styled-components'
-import { Props } from './filtro_card-index' // Importação das props criadas em filtro_card-index.tsx.
 
-type PropsOmit = Omit<Props, 'contador' | 'legenda'> // Props criada para que a cosnta card não precise ver as propriedades contador e legenda.
+type Props = {
+  ativo: boolean
+}
 
 //Config de estilo do corpo.
-export const Card = styled.div<PropsOmit>`
+export const Card = styled.div<Props>`
   padding: 8px;
   border: 1px solid ${(props) => (props.ativo ? '#1E90ff' : ' #a1a1a1')};
   background-color: ${(props) => (props.ativo ? '#fff' : ' #fcfcfc')};
   color: ${(props) => (props.ativo ? '#1E90ff' : ' #5e5e5e')};
   border-radius: 8px;
+  cursor: pointer;
 `
 
 //Config de estilo da numeração.

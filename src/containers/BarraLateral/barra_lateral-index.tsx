@@ -1,9 +1,10 @@
 //importação do arquivo de estilo e demais arquivos externos usados
 import { useDispatch, useSelector } from 'react-redux'
-import FiltroCard from '../../components/FiltroCard/filtro_card-index'
-import * as S from './barra_lateral-styles'
 import { RootReducer } from '../../store/store-index'
 import { alteraTermo } from '../../store/reducers/filtro-reducer'
+import FiltroCard from '../../components/FiltroCard/filtro_card-index'
+import * as S from './barra_lateral-styles'
+import * as enums from '../../utils/enums/enum-tarefa'
 
 const BarraLateral = () => {
   const dispatch = useDispatch()
@@ -18,12 +19,32 @@ const BarraLateral = () => {
           onChange={(evento) => dispatch(alteraTermo(evento.target.value))}
         />
         <S.Filtros>
-          <FiltroCard legenda="Pendentes" contador={1} />
-          <FiltroCard legenda="Concluídas" contador={2} />
-          <FiltroCard legenda="Urgentes" contador={3} />
-          <FiltroCard legenda="Importantes" contador={4} />
-          <FiltroCard legenda="Normal" contador={5} />
-          <FiltroCard legenda="Todas" contador={6} ativo />
+          <FiltroCard
+            valor={enums.Status.PENDENTE}
+            criterio="status"
+            legenda="Pendentes"
+          />
+          <FiltroCard
+            valor={enums.Status.CONCLUIDA}
+            criterio="status"
+            legenda="Concluídas"
+          />
+          <FiltroCard
+            valor={enums.Prioridade.URGENTE}
+            criterio="prioridade"
+            legenda="Urgentes"
+          />
+          <FiltroCard
+            valor={enums.Prioridade.IMPORTANTE}
+            criterio="prioridade"
+            legenda="Importantes"
+          />
+          <FiltroCard
+            valor={enums.Prioridade.NORMAL}
+            criterio="prioridade"
+            legenda="Normal"
+          />
+          <FiltroCard criterio="todas" legenda="Todas" />
         </S.Filtros>
       </div>
     </S.Aside>
