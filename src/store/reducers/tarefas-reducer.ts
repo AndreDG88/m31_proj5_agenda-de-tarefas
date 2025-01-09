@@ -43,6 +43,7 @@ const tarefasSlice = createSlice({
     remover: (state, action: PayloadAction<number>) => {
       state.itens = state.itens.filter((tarefa) => tarefa.id !== action.payload)
     },
+    //Função responsável por editar cards de tarefas.
     editar: (state, action: PayloadAction<Tarefa>) => {
       const indexDaTarefa = state.itens.findIndex(
         (t) => t.id === action.payload.id
@@ -51,10 +52,24 @@ const tarefasSlice = createSlice({
       if (indexDaTarefa >= 0) {
         state.itens[indexDaTarefa] = action.payload
       }
+    },
+    //Função responsável por cadastrar novos cards de tarefas. E também de verificar se já axistem cards de mesmo nome
+    cadastrar: (state, action: PayloadAction<Tarefa>) => {
+      const tarefaJaExiste = state.itens.find(
+        (tarefa) =>
+          tarefa.titulo.toLocaleLowerCase() ===
+          action.payload.titulo.toLocaleLowerCase()
+      )
+
+      if (tarefaJaExiste) {
+        alert('Já esxiste uma tarefa registrada com este mesmo nome.')
+      } else {
+        state.itens.push(action.payload)
+      }
     }
   }
 })
 
-export const { remover, editar } = tarefasSlice.actions // Exportando apenas a função remover de tarefasSlice
+export const { remover, editar, cadastrar } = tarefasSlice.actions // Exportando apenas a função remover de tarefasSlice
 
 export default tarefasSlice.reducer
