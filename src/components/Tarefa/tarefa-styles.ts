@@ -1,7 +1,8 @@
 // Configuração da estilização do arquivo tarefa-index.tsx.
 import styled from 'styled-components'
-import variaveis from '../../variaveis'
+import variaveis from '../../styles/variaveis'
 import * as enums from '../../utils/enums/enum-tarefa'
+import { Botao } from '../../styles/global-index'
 
 //Definição de props para os estilos da Tag do card.
 type tagProps = {
@@ -30,13 +31,19 @@ export const Card = styled.div`
   padding: 16px;
   margin-bottom: 32px;
   border-radius: 16px;
+
+  label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+  }
 `
 
 //Config de estilos do texto de título do card.
 export const Titulo = styled.h3`
   font-size: 18px;
   font-weight: bold;
-  margin-bottom: 16px;
+  margin-left: 8px;
 `
 
 //Config de estilos das tags de indentificação do card.
@@ -72,19 +79,7 @@ export const BarraAcoes = styled.div`
   padding-top: 16px;
 `
 
-//Config de estilos para os botões do card.
-export const Botao = styled.button`
-  font-weight: bold;
-  font-size: 12px;
-  color: #fff;
-  padding: 8px 12px;
-  border: none;
-  cursor: pointer;
-  background-color: ${variaveis.cinzaEsc};
-  border-radius: 8px;
-  margin-right: 8px;
-`
-//config variante de cor para o botão cancelar
+//config variante de cor para o botão cancelar, usando as outras propriedades do estilo Botao
 export const BtnCancelarRemover = styled(Botao)`
   background-color: ${variaveis.vermelho};
 `

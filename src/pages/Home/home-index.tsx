@@ -5,7 +5,7 @@ import ListaDeTarefas from '../../containers/ListaDeTarefas/lista_de_tarefas-ind
 
 const Home = () => (
   <>
-    <BarraLateral />
+    <BarraLateral mostrarFiltros />
     <ListaDeTarefas />
     <BotaoAdicionar />
   </>

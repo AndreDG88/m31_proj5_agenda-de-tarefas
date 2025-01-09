@@ -1,7 +1,6 @@
 //Criação do estilo global, configuração de reset
 import styled, { createGlobalStyle } from 'styled-components'
-import variaveis from '../variaveis'
-import { Botao } from '../components/Tarefa/tarefa-styles'
+import variaveis from './variaveis'
 
 const EstiloGlobal = createGlobalStyle`
   * {
@@ -44,7 +43,20 @@ export const Campo = styled.input`
   border-color: #666666;
   width: 100%;
 `
-//config do botão salvar usando configurações do botão de "Tarefa".
+//Config de estilos para os botões.
+export const Botao = styled.button`
+  font-weight: bold;
+  font-size: 12px;
+  color: #fff;
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+  background-color: ${variaveis.cinzaEsc};
+  border-radius: 8px;
+  margin-right: 8px;
+`
+
+//config do botão salvar usando configurações do botão
 export const BotaoSalvar = styled(Botao)`
   background-color: ${variaveis.verde};
 `

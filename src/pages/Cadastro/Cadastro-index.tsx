@@ -4,7 +4,7 @@ import Formulario from '../../containers/Formulario/formulario-index'
 //Config da pagina para cadastro de novas tarefas utilizando o sistema de páginas React Router DOM
 const Cadastro = () => (
   <>
-    <BarraLateral />
+    <BarraLateral mostrarFiltros={false} />
     <Formulario />
   </>
 )
